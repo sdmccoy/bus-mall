@@ -37,10 +37,35 @@ var wineGlass = new Products('wine-glass', 'img/wine-glass.jpg', 'prod20');
 
 //start the random image generation function
 
-function randomImg() {
+function randomImage1() {
   for (var i = 0; i < imgPathArray.length; i++) {
-    var random = imgPathArray[Math.floor(Math.random() * imgPathArray.length)];
-
+    var randomFilePath = imgPathArray[Math.floor(Math.random() * imgPathArray.length)];
+    var randomImg1 = document.getElementById('image1');
+    console.log(randomImg1);
+    randomImg1.setAttribute('src', randomFilePath);
   }
 
 }
+randomImage1();
+
+function randomImage2() {
+  for (var i = 0; i < imgPathArray.length; i++) {
+    var randomFilePath = imgPathArray[Math.floor(Math.random() * imgPathArray.length)];
+    var randomImg2 = document.getElementById('image2');
+    console.log(randomImg2);
+    randomImg2.setAttribute('src', randomFilePath);
+  }
+
+}
+randomImage2();
+
+function randomImage3() {
+  for (var i = 0; i < imgPathArray.length; i++) {
+    var randomFilePath = imgPathArray[Math.floor(Math.random() * imgPathArray.length)];
+    var randomImg3 = document.getElementById('image3');
+    console.log(randomImg3);
+    randomImg3.setAttribute('src', randomFilePath);
+  }
+
+}
+randomImage3();
