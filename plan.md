@@ -35,4 +35,5 @@ JS
       Text string ID for HTML
     Event listener
       for loop based on clicks recorded
-      after 25 hit an esle statement to display all products and their vote count with a concatenation. 
+      after 25 hit an esle statement to display all products and their vote count with a concatenation.
+    Create list through JS that will display the results,  append to section ID results
