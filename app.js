@@ -6,9 +6,9 @@ var previousImgDisplay = [];
 var img1 = document.getElementById('image1');
 var img2 = document.getElementById('image2');
 var img3 = document.getElementById('image3');
-var totalClicks = 0;
 var body = document.getElementsByTagName('body')[0];
-//start the constructor function to create objects
+var totalClicks = 0;
+
 function Products(name, filePath){
   this.name = name;
   this.filePath = filePath;
@@ -16,7 +16,6 @@ function Products(name, filePath){
   this.countClicked = 0;
   productsArray.push(this);
   imgPathArray.push(filePath);
-
 };
 
 var bag = new Products('bag', 'img/bag.jpg');
@@ -40,37 +39,9 @@ var usb = new Products('usb', 'img/usb.gif');
 var waterCan = new Products('water-can', 'img/water-can.jpg');
 var wineGlass = new Products('wine-glass', 'img/wine-glass.jpg');
 
-//start the random image generation function
-//This needs an else statement so if it does match it will run again.
-// function randomImage() {
-//   while (currentImgDisplay < 3) {
-//     var randomFilePath = imgPathArray[Math.floor(Math.random() * imgPathArray.length)];
-//     var randomImg1 = document.getElementById('image1');
-//     // console.log(randomImg1);
-//     randomImg1.setAttribute('src', randomFilePath);
-//     currentImgDisplay.push(randomFilePath);
-//     var randomFilePath2 = imgPathArray[Math.floor(Math.random() * imgPathArray.length)];
-//     if (currentImgDisplay[0] != randomFilePath2) {
-//       var randomImg2 = document.getElementById('image2');
-//       // console.log(randomImg2);
-//       randomImg2.setAttribute('src', randomFilePath2);
-//       currentImgDisplay.push(randomFilePath2);
-//       var randomFilePath3 = imgPathArray[Math.floor(Math.random() * imgPathArray.length)];
-//       if (randomFilePath3 != currentImgDisplay[0] && randomFilePath3 != currentImgDisplay[1]) {
-//         var randomImg3 = document.getElementById('image3');
-//         // console.log(randomImg3);
-//         randomImg3.setAttribute('src', randomFilePath3);
-//         currentImgDisplay.push(randomFilePath3);
-//       }
-//     }
-//   }
-// };
-// randomImage();
 function randomNumGen() {
   return Math.floor(Math.random() * imgPathArray.length);
 };
-
-// Trying to condense and scale the above function.
 
 function randomImgGen() {
   var currentImgDisplay = [];
@@ -80,10 +51,10 @@ function randomImgGen() {
       currentImgDisplay.push(randomNum);
     }
   }
-  var prod1 = productsArray[currentImgDisplay[0]];//assigns the random number to the object index
+  var prod1 = productsArray[currentImgDisplay[0]];
   var prod2 = productsArray[currentImgDisplay[1]];
   var prod3 = productsArray[currentImgDisplay[2]];
-  img1.src = prod1.filePath;//takes the object and picks the filePath
+  img1.src = prod1.filePath;
   img2.src = prod2.filePath;
   img3.src = prod3.filePath;
   img1.alt = currentImgDisplay[0];
@@ -114,14 +85,13 @@ img1.addEventListener('click', handleClick);
 img2.addEventListener('click', handleClick);
 img3.addEventListener('click', handleClick);
 
-//Showing the user a list of the results
 function resultsList (){
   var results = document.getElementById('results');
   var ul = document.createElement('ul');
   results.appendChild(ul);
   for (var i = 0; i < productsArray.length; i++) {
     var li = document.createElement('li');
-    var msg = 'You selected ' + productsArray[i].name + ' ' + productsArray[i].countClicked + ' times.';
+    var msg = productsArray[i].countClicked + ' votes for the ' + productsArray[i].name + '.';
     li.innerText = msg;
     ul.appendChild(li);
   }
