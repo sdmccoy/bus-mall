@@ -2,6 +2,9 @@
 
 var productsArray = [];
 var imgPathArray = [];
+var nameArray = [];
+var countClickedArray = [];
+var countShownArray = [];
 var previousImgDisplay = [];
 var img1 = document.getElementById('image1');
 var img2 = document.getElementById('image2');
@@ -16,6 +19,7 @@ function Products(name, filePath){
   this.countClicked = 0;
   productsArray.push(this);
   imgPathArray.push(filePath);
+  nameArray.push(name);
 };
 
 var bag = new Products('bag', 'img/bag.jpg');
@@ -72,13 +76,14 @@ function handleClick (){
   totalClicks++;
   var productsArrayIdx = this.alt;
   productsArray[productsArrayIdx].countClicked++;
-  if (totalClicks >= 25) {
+  if (totalClicks >= 5) {
     img1.removeEventListener('click', handleClick);
     img2.removeEventListener('click', handleClick);
     img3.removeEventListener('click', handleClick);
     var picSection = document.getElementById('imagechoices');
     body.removeChild(picSection);
     resultsList();
+    renderChart();
   }
 }
 img1.addEventListener('click', handleClick);
@@ -94,5 +99,8 @@ function resultsList (){
     var msg = productsArray[i].countClicked + ' votes for the ' + productsArray[i].name + '.';
     li.innerText = msg;
     ul.appendChild(li);
+    countClickedArray.push(productsArray[i].countClicked);
   }
+  // return countClickedArray;
+  // console.log(countClickedArray);
 };
