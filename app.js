@@ -4,6 +4,7 @@ var productsArray = [];
 var imgPathArray = [];
 var currentImgDisplay = [];
 var previousImgDisplay = [];
+var photoID = ['image1', 'image2', 'image3'];
 //start the constructor function to create objects
 function Products(name, filePath, ID, countShown, countClicked){
   this.name = name;
@@ -38,9 +39,9 @@ var waterCan = new Products('water-can', 'img/water-can.jpg', 'prod19');
 var wineGlass = new Products('wine-glass', 'img/wine-glass.jpg', 'prod20');
 
 //start the random image generation function
-
+//This needs an else statement so if it does match it will run again.
 function randomImage() {
-  for (var i = 0; i < 25; i++) {
+  while (currentImgDisplay < 3) {
     var randomFilePath = imgPathArray[Math.floor(Math.random() * imgPathArray.length)];
     var randomImg1 = document.getElementById('image1');
     // console.log(randomImg1);
@@ -64,11 +65,15 @@ function randomImage() {
 };
 randomImage();
 
-// randomImage2();
-//
-// function randomImage3() {
-//   for (var i = 0; i < imgPathArray.length; i++) {
+// Trying to condense and scale the above function.
+// function randomImgGen() {
+//   for (var i = 0; i < 3; i++) {
+//     var randomFilePath = imgPathArray[Math.floor(Math.random() * imgPathArray.length)];
+//     console.log(randomFilePath);
+//     var randomImg = document.getElementById(photoID[i]);
+//     console.log(randomImg);
+//     randomImg.setAttribute('src', randomFilePath);
+//     currentImgDisplay.push(randomFilePath);
 //   }
-//
-// }
-// randomImage3();
+// };
+// randomImgGen();
