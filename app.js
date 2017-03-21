@@ -76,31 +76,22 @@ function handleClick (){
   totalClicks++;
   var productsArrayIdx = this.alt;
   productsArray[productsArrayIdx].countClicked++;
-  if (totalClicks >= 5) {
+  if (totalClicks >= 25) {
     img1.removeEventListener('click', handleClick);
     img2.removeEventListener('click', handleClick);
     img3.removeEventListener('click', handleClick);
     var picSection = document.getElementById('imagechoices');
     body.removeChild(picSection);
-    resultsList();
+    countClickedArrayPush();
     renderChart();
   }
-}
+};
 img1.addEventListener('click', handleClick);
 img2.addEventListener('click', handleClick);
 img3.addEventListener('click', handleClick);
 
-function resultsList (){
-  var results = document.getElementById('results');
-  var ul = document.createElement('ul');
-  results.appendChild(ul);
+function countClickedArrayPush (){
   for (var i = 0; i < productsArray.length; i++) {
-    var li = document.createElement('li');
-    var msg = productsArray[i].countClicked + ' votes for the ' + productsArray[i].name + '.';
-    li.innerText = msg;
-    ul.appendChild(li);
     countClickedArray.push(productsArray[i].countClicked);
   }
-  // return countClickedArray;
-  // console.log(countClickedArray);
 };

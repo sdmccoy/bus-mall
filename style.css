@@ -2,10 +2,6 @@
 Secondary rgb(151, 232, 255) #97e8ff
 Highlight rgb(255, 247, 151) #fff797*/
 
-* {
-  /*outline: 1px solid black;*/
-}
-
 .clearfloat {
   clear: both;
 }
@@ -119,11 +115,4 @@ h2 {
   margin: 150px auto;
   border: 3px solid lightgrey;
   border-radius: 10px;
-}
-
-#results li {
-  font-size: 1.2em;
-  text-align: center;
-  display: block;
-  margin: 5px 0px;
 }
