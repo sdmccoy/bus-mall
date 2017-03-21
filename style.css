@@ -63,6 +63,10 @@ h1 {
 
 }
 
+#image1:hover, #image2:hover, #image3:hover{
+  cursor: pointer;
+}
+
 h2 {
   font-size: 2em;
   text-align: center;
@@ -112,7 +116,14 @@ h2 {
   position: relative;
   width: 80%;
   height: 540px;
-  margin: 20px auto;
+  margin: 150px auto;
   border: 3px solid lightgrey;
   border-radius: 10px;
+}
+
+#results li {
+  font-size: 1.2em;
+  text-align: center;
+  display: block;
+  margin: 5px 0px;
 }
