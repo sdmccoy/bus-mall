@@ -93,5 +93,6 @@ img3.addEventListener('click', handleClick);
 function countClickedArrayPush (){
   for (var i = 0; i < productsArray.length; i++) {
     countClickedArray.push(productsArray[i].countClicked);
+    countShownArray.push(productsArray[i].countShown);
   }
 };
